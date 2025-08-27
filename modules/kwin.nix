@@ -166,6 +166,11 @@ in
         default = null;
         description = "Enable the zoom effect.";
       };
+      magnifier.enable = lib.mkOption {
+        type = with lib.types; nullOr bool;
+        default = null;
+        description = "Enable the magnifier effect.";
+      };
       shakeCursor.enable = lib.mkOption {
         type = with lib.types; nullOr bool;
         default = null;
@@ -613,6 +618,12 @@ in
         }
         {
           assertion =
+            (cfg.kwin.effects.zoom.enable == null || cfg.kwin.effects.zoom.enable == false)
+          || (cfg.kwin.effects.magnifier.enable == null || cfg.kwin.effects.zoon.enable == false);
+          message = "programs.plasma.kwin.effects.zoom.enable and programs.plasma.kwin.effects.magnifier.enable cannot both be true.";
+        }
+        {
+          assertion =
             cfg.kwin.effects.minimization.duration == null
             || cfg.kwin.effects.minimization.animation == "magiclamp";
           message = "programs.plasma.kwin.effects.minimization.duration is only supported for the magic lamp effect";
@@ -672,6 +683,9 @@ in
           # Effects
           (lib.mkIf (cfg.kwin.effects.zoom.enable != null) {
             Plugins.zoomEnabled = cfg.kwin.effects.zoom.enable;
+          })
+          (lib.mkIf (cfg.kwin.effects.magnifier.enable != null) {
+            Plugins.magnifierEnabled = cfg.kwin.effects.magnifier.enable;
           })
           (lib.mkIf (cfg.kwin.effects.shakeCursor.enable != null) {
             Plugins.shakecursorEnabled = cfg.kwin.effects.shakeCursor.enable;
