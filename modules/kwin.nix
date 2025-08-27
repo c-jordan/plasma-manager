@@ -161,6 +161,11 @@ in
     };
 
     effects = {
+      zoom.enable = lib.mkOption {
+        type = with lib.types; nullOr bool;
+        default = null;
+        description = "Enable the zoom effect.";
+      };
       shakeCursor.enable = lib.mkOption {
         type = with lib.types; nullOr bool;
         default = null;
@@ -665,6 +670,9 @@ in
           })
 
           # Effects
+          (lib.mkIf (cfg.kwin.effects.zoom.enable != null) {
+            Plugins.zoomEnabled = cfg.kwin.effects.zoom.enable;
+          })
           (lib.mkIf (cfg.kwin.effects.shakeCursor.enable != null) {
             Plugins.shakecursorEnabled = cfg.kwin.effects.shakeCursor.enable;
           })
