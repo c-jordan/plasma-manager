@@ -161,6 +161,26 @@ in
     };
 
     effects = {
+      hideCursor = {
+        enable = lib.mkOption {
+          type = with lib.types; nullOr bool;
+          default = null;
+          example = false;
+          description = "Enable the hide cursor effect.";
+        };
+        hideOnInactivity = lib.mkOption {
+          type = with lib.types; nullOr ints.unsigned;
+          default = null;
+          example = 0;
+          description = "Hide cursor after inactivity in seconds.";
+        };
+        hideOnTyping = lib.mkOption {
+          type = with lib.types; nullOr bool;
+          default = null;
+          example = true;
+          description = "Hide cursor effect while typing.";
+        };
+      };
       zoom = {
         enable = lib.mkOption {
           type = with lib.types; nullOr bool;
@@ -762,6 +782,15 @@ in
           })
 
           # Effects
+          (lib.mkIf (cfg.kwin.effects.hideCursor.enable != null) {
+            Plugins.hidecursorEnabled = cfg.kwin.effects.hideCursor.enable;
+          })
+          (lib.mkIf (cfg.kwin.effects.hideCursor.hideOnInactivity != null) {
+            Effect-hidecursor.InactivityDuration = cfg.kwin.effects.hideCursor.hideOnInactivity;
+          })
+          (lib.mkIf (cfg.kwin.effects.hideCursor.hideOnTyping != null) {
+            Effect-hidecursor.HideOnTyping = cfg.kwin.effects.hideCursor.hideOnTyping;
+          })
           (lib.mkIf (cfg.kwin.effects.zoom.enable != null) {
             Plugins.zoomEnabled = cfg.kwin.effects.zoom.enable;
           })
