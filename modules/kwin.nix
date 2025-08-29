@@ -705,12 +705,6 @@ in
         }
         {
           assertion =
-            (cfg.kwin.effects.zoom.enable == null || cfg.kwin.effects.zoom.enable == false)
-            || (cfg.kwin.effects.magnifier.enable == null || cfg.kwin.effects.magnifier.enable == false);
-          message = "programs.plasma.kwin.effects.zoom.enable and programs.plasma.kwin.effects.magnifier.enable cannot both be true.";
-        }
-        {
-          assertion =
             cfg.kwin.effects.minimization.duration == null
             || cfg.kwin.effects.minimization.animation == "magiclamp";
           message = "programs.plasma.kwin.effects.minimization.duration is only supported for the magic lamp effect";
