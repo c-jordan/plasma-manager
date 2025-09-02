@@ -181,6 +181,12 @@ in
           description = "Hide cursor effect while typing.";
         };
       };
+      invert.enable = lib.mkOption {
+          type = with lib.types; nullOr bool;
+          default = null;
+          example = false;
+          description = "Enable the invert effect toggle.";
+      };
       zoom = {
         enable = lib.mkOption {
           type = with lib.types; nullOr bool;
@@ -790,6 +796,9 @@ in
           })
           (lib.mkIf (cfg.kwin.effects.hideCursor.hideOnTyping != null) {
             Effect-hidecursor.HideOnTyping = cfg.kwin.effects.hideCursor.hideOnTyping;
+          })
+          (lib.mkIf (cfg.kwin.effects.invert.enable != null) {
+            Plugins.invertEnabled = cfg.kwin.effects.invert.enable;
           })
           (lib.mkIf (cfg.kwin.effects.zoom.enable != null) {
             Plugins.zoomEnabled = cfg.kwin.effects.zoom.enable;
