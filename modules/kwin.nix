@@ -790,12 +790,10 @@ in
           # Effects
           (lib.mkIf (cfg.kwin.effects.hideCursor.enable != null) {
             Plugins.hidecursorEnabled = cfg.kwin.effects.hideCursor.enable;
-          })
-          (lib.mkIf (cfg.kwin.effects.hideCursor.hideOnInactivity != null) {
-            Effect-hidecursor.InactivityDuration = cfg.kwin.effects.hideCursor.hideOnInactivity;
-          })
-          (lib.mkIf (cfg.kwin.effects.hideCursor.hideOnTyping != null) {
-            Effect-hidecursor.HideOnTyping = cfg.kwin.effects.hideCursor.hideOnTyping;
+            Effect-hidecursor = {
+              InactivityDuration = cfg.kwin.effects.hideCursor.hideOnInactivity;
+              HideOnTyping = cfg.kwin.effects.hideCursor.hideOnTyping;
+            };
           })
           (lib.mkIf (cfg.kwin.effects.zoom.enable != null) {
             Plugins.zoomEnabled = cfg.kwin.effects.zoom.enable;
