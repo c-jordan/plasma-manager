@@ -769,8 +769,8 @@ in
               PixelGridZoom = cfg.kwin.effects.zoom.pixelGridZoom;
               MousePointer = cfg.kwin.effects.zoom.mousePointer;
               MouseTracking = cfg.kwin.effects.zoom.mouseTracking;
-              EnableFocusTracking = cfg.kwin.effects.zoom.focusTracking;
-              EnableTextCaretTracking = cfg.kwin.effects.zoom.textCursorTracking;
+              EnableFocusTracking = cfg.kwin.effects.zoom.focusTracking.enable;
+              EnableTextCaretTracking = cfg.kwin.effects.zoom.textCursorTracking.enable;
               PointerAxisGestureModifiers = cfg.kwin.effects.zoom.scrollGestureModKeys;
             };
           })
