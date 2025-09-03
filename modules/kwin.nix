@@ -764,37 +764,50 @@ in
           # Effects
           (lib.mkIf (cfg.kwin.effects.zoom.enable != null) {
             Plugins.zoomEnabled = cfg.kwin.effects.zoom.enable;
+            Effect-zoom = {
+              ZoomFactor = cfg.kwin.effects.zoom.zoomFactor;
+              PixelGridZoom = cfg.kwin.effects.zoom.PixelGridZoom;
+              MousePointer = cfg.kwin.effects.zoom.mousePointer;
+              MouseTracking = cfg.kwin.effects.zoom.mouseTracking;
+              EnableFocusTracking = cfg.kwin.effects.zoom.focusTracking;
+              EnableTextCaretTracking = cfg.kwin.effects.zoom.textCursorTracking;
+              PointerAxisGestureModifiers = cfg.kwin.effects.zoom.scrollGestureModKeys;
+            };
           })
-          (lib.mkIf (cfg.kwin.effects.zoom.zoomFactor != null) {
-            Effect-zoom.ZoomFactor = cfg.kwin.effects.zoom.zoomFactor;
-          })
-          (lib.mkIf (cfg.kwin.effects.zoom.pixelGridZoom != null) {
-            Effect-zoom.PixelGridZoom = cfg.kwin.effects.zoom.PixelGridZoom;
-          })
-          (lib.mkIf (cfg.kwin.effects.zoom.mousePointer != null) {
-            Effect-zoom.MousePointer = cfg.kwin.effects.zoom.mousePointer;
-          })
-          (lib.mkIf (cfg.kwin.effects.zoom.mouseTracking != null) {
-            Effect-zoom.MouseTracking = cfg.kwin.effects.zoom.mouseTracking;
-          })
-          (lib.mkIf (cfg.kwin.effects.zoom.focusTracking != null) {
-            Effect-zoom.EnableFocusTracking = cfg.kwin.effects.zoom.focusTracking;
-          })
-          (lib.mkIf (cfg.kwin.effects.zoom.textCursorTracking != null) {
-            Effect-zoom.EnableTextCaretTracking = cfg.kwin.effects.zoom.textCursorTracking;
-          })
-          (lib.mkIf (cfg.kwin.effects.zoom.scrollGestureModKeys != null) {
-            Effect-zoom.PointerAxisGestureModifiers = cfg.kwin.effects.zoom.scrollGestureModKeys;
-          })
+          # (lib.mkIf (cfg.kwin.effects.zoom.zoomFactor != null) {
+            # Effect-zoom.ZoomFactor = cfg.kwin.effects.zoom.zoomFactor;
+          # })
+          # (lib.mkIf (cfg.kwin.effects.zoom.pixelGridZoom != null) {
+            # Effect-zoom.PixelGridZoom = cfg.kwin.effects.zoom.PixelGridZoom;
+          # })
+          # (lib.mkIf (cfg.kwin.effects.zoom.mousePointer != null) {
+            # Effect-zoom.MousePointer = cfg.kwin.effects.zoom.mousePointer;
+          # })
+          # (lib.mkIf (cfg.kwin.effects.zoom.mouseTracking != null) {
+            # Effect-zoom.MouseTracking = cfg.kwin.effects.zoom.mouseTracking;
+          # })
+          # (lib.mkIf (cfg.kwin.effects.zoom.focusTracking != null) {
+            # Effect-zoom.EnableFocusTracking = cfg.kwin.effects.zoom.focusTracking;
+          # })
+          # (lib.mkIf (cfg.kwin.effects.zoom.textCursorTracking != null) {
+            # Effect-zoom.EnableTextCaretTracking = cfg.kwin.effects.zoom.textCursorTracking;
+          # })
+          # (lib.mkIf (cfg.kwin.effects.zoom.scrollGestureModKeys != null) {
+            # Effect-zoom.PointerAxisGestureModifiers = cfg.kwin.effects.zoom.scrollGestureModKeys;
+          # })
           (lib.mkIf (cfg.kwin.effects.magnifier.enable != null) {
             Plugins.magnifierEnabled = cfg.kwin.effects.magnifier.enable;
+            Effect-magnifier = {
+              Height = cfg.kwin.effects.magnifier.height;
+              Width = cfg.kwin.effects.magnifier.width;
+            };
           })
-          (lib.mkIf (cfg.kwin.effects.magnifier.height != null) {
-            Effect-magnifier.Height = cfg.kwin.effects.magnifier.height;
-          })
-          (lib.mkIf (cfg.kwin.effects.magnifier.width != null) {
-            Effect-magnifier.Width = cfg.kwin.effects.magnifier.width;
-          })
+          # (lib.mkIf (cfg.kwin.effects.magnifier.height != null) {
+            # Effect-magnifier.Height = cfg.kwin.effects.magnifier.height;
+          # })
+          # (lib.mkIf (cfg.kwin.effects.magnifier.width != null) {
+            # Effect-magnifier.Width = cfg.kwin.effects.magnifier.width;
+          # })
           (lib.mkIf (cfg.kwin.effects.shakeCursor.enable != null) {
             Plugins.shakecursorEnabled = cfg.kwin.effects.shakeCursor.enable;
           })
