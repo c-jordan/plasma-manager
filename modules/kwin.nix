@@ -766,7 +766,7 @@ in
             Plugins.zoomEnabled = cfg.kwin.effects.zoom.enable;
             Effect-zoom = {
               ZoomFactor = cfg.kwin.effects.zoom.zoomFactor;
-              PixelGridZoom = cfg.kwin.effects.zoom.PixelGridZoom;
+              PixelGridZoom = cfg.kwin.effects.zoom.pixelGridZoom;
               MousePointer = cfg.kwin.effects.zoom.mousePointer;
               MouseTracking = cfg.kwin.effects.zoom.mouseTracking;
               EnableFocusTracking = cfg.kwin.effects.zoom.focusTracking;
